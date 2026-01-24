@@ -35,11 +35,24 @@ export class TerminalMac implements OnInit, AfterViewInit, OnDestroy {
     @Input() enableAnimations: boolean = true;
     @Input() terminalStyle: TerminalMacStyle = {};
 
+    @Input() typingMinMs: number = 50;
+    @Input() typingMaxMs: number = 80;
+    @Input() linePauseMs: number = 300;
+    @Input() initialDelayMs: number = 1000;
+    @Input() cursorBlinkMs: number = 500;
+
     linesContent: string[] = [];
+    typedLines: string[] = [];
+    activeLineIndex: number = 0;
+    activeCharIndex: number = 0;
+    isTyping: boolean = false;
+    typingRunId: number = 0;
 
     private sizeWindow: string = '80x24';
 
     private windowResizeObserver?: ResizeObserver;
+
+    private typingTimeouts: Array<ReturnType<typeof setTimeout>> = [];
 
     constructor(private cdr: ChangeDetectorRef) {}
 
@@ -52,11 +65,11 @@ export class TerminalMac implements OnInit, AfterViewInit, OnDestroy {
         this.splitTextContent();
         this.initializeResizeObserver();
         this.cdr.detectChanges();
-
     }
 
     ngOnDestroy(): void {
         this.windowResizeObserver?.disconnect();
+        this.typingTimeouts.forEach(clearTimeout);
     }
 
     get title(): string {
@@ -73,7 +86,6 @@ export class TerminalMac implements OnInit, AfterViewInit, OnDestroy {
         this.windowResizeObserver = new ResizeObserver(() => {
             this.calculateSizeWindow();
             this.splitTextContent();
-            this.cdr.detectChanges();
         });
         const macTerminalElement = document.getElementById('mac-terminal-content');
         if (macTerminalElement) {
@@ -111,7 +123,16 @@ export class TerminalMac implements OnInit, AfterViewInit, OnDestroy {
                     if (lineContent) {
                         out.push(lineContent);
                     }
-                    lineContent = w.length > contentCols ? w : w;
+                    if (w.length > contentCols) {
+                        let remaining = w;
+                        while (remaining.length > contentCols) {
+                            out.push(remaining.slice(0, contentCols));
+                            remaining = remaining.slice(contentCols);
+                        }
+                        lineContent = remaining;
+                    } else {
+                        lineContent = w;
+                    }
                 } else {
                     lineContent = candidate;
                 }
@@ -119,10 +140,65 @@ export class TerminalMac implements OnInit, AfterViewInit, OnDestroy {
             if (lineContent) out.push(lineContent);
         }
         this.linesContent = out;
+        if (this.enableAnimations) {
+            this.startTyping();
+        } else {
+            this.stopTyping();
+            this.typedLines = [...this.linesContent];
+            this.activeLineIndex = this.linesContent.length > 0 ? this.linesContent.length - 1 : 0;
+        }
     }
 
     private initializeStyle(): void {
         this.terminalStyle.content = this.terminalStyle.content ?? {};
         this.terminalStyle.content!['font-size'] = `${this.fontSize}px`;
+    }
+
+    startTyping(): void {
+        if (!this.linesContent.length) return;
+        if (!this.enableAnimations) {
+            this.stopTyping();
+            this.typedLines = [...this.linesContent];
+            this.activeLineIndex = this.linesContent.length - 1;
+            return;
+        }
+        this.stopTyping();
+        this.isTyping = true;
+        this.activeLineIndex = 0;
+        this.activeCharIndex = 0;
+        this.typedLines = this.linesContent.map(() => '');
+        const runId = ++this.typingRunId;
+        this.typingTimeouts.push(setTimeout(() => this.typeNextChar(runId), this.initialDelayMs));
+    }
+
+    private typeNextChar(runId: number): void {
+        if (runId !== this.typingRunId) return;
+        if (this.activeLineIndex >= this.linesContent.length) {
+            this.isTyping = false;
+            this.cdr.detectChanges();
+            return;
+        }
+        const line = this.linesContent[this.activeLineIndex];
+        if (this.activeCharIndex < line.length) {
+            const delay = Math.floor(Math.random() * (this.typingMaxMs - this.typingMinMs + 1)) + this.typingMinMs;
+            this.typingTimeouts.push(setTimeout(() => {
+                if (runId !== this.typingRunId) return;
+                this.typedLines[this.activeLineIndex] = (this.typedLines[this.activeLineIndex] || '') + line[this.activeCharIndex];
+                this.activeCharIndex++;
+                this.cdr.markForCheck();
+                this.typeNextChar(runId);
+            }, delay));
+        } else {
+            this.activeLineIndex++;
+            this.activeCharIndex = 0;
+            this.typingTimeouts.push(setTimeout(() => this.typeNextChar(runId), this.linePauseMs));
+        }
+    }
+
+    private stopTyping(): void {
+        this.typingRunId++;
+        this.isTyping = false;
+        this.typingTimeouts.forEach(clearTimeout);
+        this.typingTimeouts = [];
     }
 }

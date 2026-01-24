@@ -8,14 +8,31 @@
         <div class="title">{{ title }}</div>
     </div>
     <div class="content" id="mac-terminal-content" [ngStyle]="terminalStyle.content">
-        @for (line of linesContent; track $index) {
-            <span [ngStyle]="terminalStyle.linePrompt?.username">{{ username }}</span>
-            <span [ngStyle]="terminalStyle.linePrompt?.at">{{ at }}</span>
-            <span [ngStyle]="terminalStyle.linePrompt?.hostname">{{ hostname }}</span>
-            <span [ngStyle]="terminalStyle.linePrompt?.tilde">{{ tilde }}</span>
-            <span [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{ promptSymbol }}</span>
-            <span>{{ line }}</span>
-            <br />
+        <span [ngStyle]="terminalStyle.linePrompt?.username">{{ username }}</span>
+        <span [ngStyle]="terminalStyle.linePrompt?.at">{{ at }}</span>
+        <span [ngStyle]="terminalStyle.linePrompt?.hostname">{{ hostname }}</span>
+        <span [ngStyle]="terminalStyle.linePrompt?.tilde">{{ tilde }}</span>
+        <span [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{ promptSymbol }}</span>
+        @for (line of typedLines; track $index) {
+            @if (line && line !== '') {
+                @if ($index > 0) {
+                    <span [ngStyle]="terminalStyle.linePrompt?.username">{{ username }}</span>
+                    <span [ngStyle]="terminalStyle.linePrompt?.at">{{ at }}</span>
+                    <span [ngStyle]="terminalStyle.linePrompt?.hostname">{{ hostname }}</span>
+                    <span [ngStyle]="terminalStyle.linePrompt?.tilde">{{ tilde }}</span>
+                    <span [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{
+                        promptSymbol
+                    }}</span>
+                }
+                <span>{{ line }}</span>
+                @if (
+                    (activeLineIndex === $index && isTyping) ||
+                    (!isTyping && $index === typedLines.length - 1 && typedLines.length > 0)
+                ) {
+                    <span class="cursor" aria-hidden="true"></span>
+                }
+                <br />
+            }
         }
     </div>
 </div>
