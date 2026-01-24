@@ -1,0 +1,21 @@
+<div class="window-container">
+    <div class="header">
+        <div class="controls">
+            <span class="control close"></span>
+            <span class="control minimize"></span>
+            <span class="control maximize"></span>
+        </div>
+        <div class="title">{{ title }}</div>
+    </div>
+    <div class="content" id="mac-terminal-content" [ngStyle]="terminalStyle.content">
+        @for (line of linesContent; track $index) {
+            <span [ngStyle]="terminalStyle.linePrompt?.username">{{ username }}</span>
+            <span [ngStyle]="terminalStyle.linePrompt?.at">{{ at }}</span>
+            <span [ngStyle]="terminalStyle.linePrompt?.hostname">{{ hostname }}</span>
+            <span [ngStyle]="terminalStyle.linePrompt?.tilde">{{ tilde }}</span>
+            <span [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{ promptSymbol }}</span>
+            <span>{{ line }}</span>
+            <br />
+        }
+    </div>
+</div>

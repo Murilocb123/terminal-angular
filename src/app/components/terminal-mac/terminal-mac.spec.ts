@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Terminal } from './terminal';
+import { TerminalMac } from './terminal-mac';
 
-describe('Terminal', () => {
-  let component: Terminal;
-  let fixture: ComponentFixture<Terminal>;
+describe('TerminalMac', () => {
+  let component: TerminalMac;
+  let fixture: ComponentFixture<TerminalMac>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Terminal]
+      imports: [TerminalMac]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Terminal);
+    fixture = TestBed.createComponent(TerminalMac);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

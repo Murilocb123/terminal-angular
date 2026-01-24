@@ -1,1 +1,13 @@
-<app-terminal></app-terminal>
+<app-terminal-mac
+[terminalStyle]="
+{
+    linePrompt: {
+        username: { color: '#4EE1FF' },
+        at: { color: '#FFFFFF' },
+        hostname: { color: '#FF5C8F' },
+        tilde: { color: '#FFFFFF' },
+        promptSymbol: { color: '#00FF00' }
+    },
+}
+"
+></app-terminal-mac>

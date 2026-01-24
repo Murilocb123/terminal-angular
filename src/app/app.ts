@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Terminal } from './components/terminal/terminal';
+import { TerminalMac } from './components/terminal-mac/terminal-mac';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Terminal],
+  imports: [RouterOutlet, TerminalMac],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
