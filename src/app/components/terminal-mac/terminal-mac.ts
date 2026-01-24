@@ -113,7 +113,7 @@ export class TerminalMac implements OnInit, AfterViewInit, OnDestroy {
                     }
                     lineContent = w.length > contentCols ? w : w;
                 } else {
-                    lineContent = w;
+                    lineContent = candidate;
                 }
             }
             if (lineContent) out.push(lineContent);

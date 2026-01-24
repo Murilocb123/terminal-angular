@@ -1,7 +1,7 @@
 .window-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -22,6 +22,7 @@
                 -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
                 'Open Sans', 'Helvetica Neue', sans-serif;
         }
+        
         .controls {
             display: flex;
             gap: 8px;
@@ -56,6 +57,6 @@
         font-family: 'SF Mono', 'Fira Code', 'Source Code Pro', monospace;
         font-size: 14px;
         overflow-y: auto;
-        height: 100vh;
+        height: 100%;
     }
 }
