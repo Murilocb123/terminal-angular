@@ -7,6 +7,11 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "ng-terminal": [
+        "./dist/ng-terminal"
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
@@ -28,6 +33,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ng-terminal/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ng-terminal/tsconfig.spec.json"
     }
   ]
 }

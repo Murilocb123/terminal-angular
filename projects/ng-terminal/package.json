@@ -1,0 +1,28 @@
+{
+    "name": "@murilocb123/ng-terminal",
+    "version": "0.0.1",
+    "description": "A customizable terminal component for Angular",
+    "author": "Murilo Costa Bittencourt",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/murilocb123/terminal-angular.git"
+    },
+    "bugs": {
+        "url": "https://github.com/murilocb123/terminal-angular/issues"
+    },
+    "homepage": "https://github.com/murilocb123/terminal-angular#readme",
+    "keywords": [
+        "angular",
+        "terminal",
+        "component",
+        "ui"
+    ],
+    "peerDependencies": {
+        "@angular/common": "^21.1.0",
+        "@angular/core": "^21.1.0"
+    },
+    "dependencies": {
+        "tslib": "^2.3.0"
+    },
+    "sideEffects": false
+}

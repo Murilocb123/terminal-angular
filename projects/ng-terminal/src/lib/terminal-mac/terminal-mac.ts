@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, input, Input, OnInit, OnDestroy } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 
 
@@ -16,7 +16,7 @@ export interface TerminalMacStyle {
 
 
 @Component({
-    selector: 'app-terminal-mac',
+    selector: 'ng-terminal-mac',
     imports: [CommonModule],
     templateUrl: './terminal-mac.html',
     styleUrl: './terminal-mac.scss',

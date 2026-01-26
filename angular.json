@@ -74,6 +74,32 @@
           "builder": "@angular/build:unit-test"
         }
       }
+    },
+    "ng-terminal": {
+      "projectType": "library",
+      "root": "projects/ng-terminal",
+      "sourceRoot": "projects/ng-terminal/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-terminal/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-terminal/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/ng-terminal/tsconfig.spec.json"
+          }
+        }
+      }
     }
   }
 }
