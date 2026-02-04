@@ -8,8 +8,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "paths": {
-      "ng-terminal": [
-        "./dist/ng-terminal"
+      "ng-terminal-simulator": [
+        "./dist/ng-terminal-simulator"
       ]
     },
     "noFallthroughCasesInSwitch": true,
@@ -35,10 +35,10 @@
       "path": "./tsconfig.spec.json"
     },
     {
-      "path": "./projects/ng-terminal/tsconfig.lib.json"
+      "path": "./projects/ng-terminal-simulator/tsconfig.lib.json"
     },
     {
-      "path": "./projects/ng-terminal/tsconfig.spec.json"
+      "path": "./projects/ng-terminal-simulator/tsconfig.spec.json"
     }
   ]
 }

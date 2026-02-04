@@ -75,20 +75,20 @@
         }
       }
     },
-    "ng-terminal": {
+    "ng-terminal-simulator": {
       "projectType": "library",
-      "root": "projects/ng-terminal",
-      "sourceRoot": "projects/ng-terminal/src",
+      "root": "projects/ng-terminal-simulator",
+      "sourceRoot": "projects/ng-terminal-simulator/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular/build:ng-packagr",
           "configurations": {
             "production": {
-              "tsConfig": "projects/ng-terminal/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ng-terminal-simulator/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ng-terminal/tsconfig.lib.json"
+              "tsConfig": "projects/ng-terminal-simulator/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -96,7 +96,7 @@
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
-            "tsConfig": "projects/ng-terminal/tsconfig.spec.json"
+            "tsConfig": "projects/ng-terminal-simulator/tsconfig.spec.json"
           }
         }
       }

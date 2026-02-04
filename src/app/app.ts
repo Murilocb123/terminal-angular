@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { TerminalMac } from 'ng-terminal';
+import { TerminalMac } from 'ng-terminal-simulator';
 
 @Component({
     selector: 'app-root',

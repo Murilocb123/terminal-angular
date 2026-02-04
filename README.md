@@ -1,10 +1,10 @@
-# 🖥️ ng-terminal
+# 🖥️ ng-terminal-simulator
 
 Uma biblioteca Angular que fornece componentes de terminal altamente customizáveis que simulam interfaces de terminais reais de diferentes sistemas operacionais.
 
 ## 📋 Sobre o Projeto
 
-**ng-terminal** é uma biblioteca de componentes Angular que permite integrar simuladores de terminal em suas aplicações web. Com suporte a temas e estilos personalizáveis, oferece uma experiência visual autêntica de diferentes ambientes de terminal.
+**ng-terminal-simulator** é uma biblioteca de componentes Angular que permite integrar simuladores de terminal em suas aplicações web. Com suporte a temas e estilos personalizáveis, oferece uma experiência visual autêntica de diferentes ambientes de terminal.
 
 ### 🎯 Componentes Disponíveis
 
@@ -21,14 +21,14 @@ Uma biblioteca Angular que fornece componentes de terminal altamente customizáv
 Instale a biblioteca via npm:
 
 ```bash
-npm install @murilocb123/ng-terminal
+npm install @murilocb123/ng-terminal-simulator
 ```
 
 ### 2️⃣ Importação no seu componente
 
 ```typescript
 import { Component } from '@angular/core';
-import { TerminalMac } from '@murilocb123/ng-terminal';
+import { TerminalMac } from '@murilocb123/ng-terminal-simulator';
 
 @Component({
   selector: 'app-root',
@@ -42,12 +42,12 @@ export class AppComponent {}
 ### 3️⃣ Uso no template
 
 ```html
-<ng-terminal-mac
+<ng-terminal-simulator-mac
   [textContent]="'$ welcome to my terminal'"
   [theme]="'dark'"
   [username]="'developer'"
   [hostname]="'MacBook-Pro'"
-></ng-terminal-mac>
+></ng-terminal-simulator-mac>
 ```
 
 ---
@@ -60,16 +60,16 @@ Siga estes passos para publicar a biblioteca:
 
 ```bash
 # 1️⃣ Build da biblioteca
-ng build ng-terminal
+ng build ng-terminal-simulator
 
 # 2️⃣ Publicar no npm
-npm publish dist/ng-terminal
+npm publish ng-terminal-simulator --access public
 ```
 
 Sucesso! 🎉 A biblioteca está disponível no npm e pode ser instalada por qualquer um:
 
 ```bash
-npm install @murilocb123/ng-terminal
+npm install @murilocb123/ng-terminal-simulator
 ```
 
 ## 🗂️ Estrutura do Projeto
@@ -77,7 +77,7 @@ npm install @murilocb123/ng-terminal
 ```
 terminal-angular/
 ├── projects/
-│   └── ng-terminal/
+│   └── ng-terminal-simulator/
 │       ├── src/
 │       │   ├── lib/
 │       │   │   └── components/

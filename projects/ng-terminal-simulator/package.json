@@ -1,16 +1,12 @@
 {
-    "name": "@murilocb123/ng-terminal",
+    "name": "@murilocb123/ng-terminal-simulator-simulator",
     "version": "0.0.1",
     "description": "A customizable terminal component for Angular",
     "author": "Murilo Costa Bittencourt",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/murilocb123/terminal-angular.git"
-    },
     "bugs": {
-        "url": "https://github.com/murilocb123/terminal-angular/issues"
+        "url": "https://github.com/Murilocb123/terminal-angular/issues"
     },
-    "homepage": "https://github.com/murilocb123/terminal-angular#readme",
+    "homepage": "https://github.com/Murilocb123/terminal-angular#readme",
     "keywords": [
         "angular",
         "terminal",

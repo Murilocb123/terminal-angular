@@ -16,7 +16,7 @@ export interface TerminalMacStyle {
 
 
 @Component({
-    selector: 'ng-terminal-mac',
+    selector: 'ng-terminal-simulator-mac',
     imports: [CommonModule],
     templateUrl: './terminal-mac.html',
     styleUrl: './terminal-mac.scss',
