@@ -1,0 +1,39 @@
+<div class="window-container" [class.light-theme]="theme === 'light'">
+    <div class="header">
+        <div class="title">{{ title }}</div>
+        <div class="controls">
+            <div class="control minimize">
+                <span class="icon">─</span>
+            </div>
+            <div class="control maximize">
+                <span class="icon">□</span>
+            </div>
+            <div class="control close">
+                <span class="icon">×</span>
+            </div>
+        </div>
+    </div>
+    <div class="content" #contentElement [ngStyle]="terminalStyle.content">
+        <div class="line">
+            @if (interpreter === 'powershell') {
+                <span class="ps" [ngStyle]="terminalStyle.linePrompt?.ps">{{ shellPrefix }}</span>
+            }
+            <span class="path" [ngStyle]="terminalStyle.linePrompt?.path">{{ path }}</span>
+            <span class="prompt-symbol" [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{ promptSymbol }}</span>
+            <span class="cursor" [style.animation-duration.ms]="cursorBlinkSpeed"></span>
+        </div>
+        @for (line of currentTypedLines; track $index) {
+            <div class="line">
+                @if (interpreter === 'powershell') {
+                    <span class="ps" [ngStyle]="terminalStyle.linePrompt?.ps">{{ shellPrefix }}</span>
+                }
+                <span class="path" [ngStyle]="terminalStyle.linePrompt?.path">{{ path }}</span>
+                <span class="prompt-symbol" [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{ promptSymbol }}</span>
+                <span class="text">{{ line }}</span>
+                @if (isTyping && $index === currentLineIndex) {
+                    <span class="cursor" [style.animation-duration.ms]="cursorBlinkSpeed"></span>
+                }
+            </div>
+        }
+    </div>
+</div>

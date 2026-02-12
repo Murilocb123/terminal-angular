@@ -9,7 +9,7 @@ Uma biblioteca Angular que fornece componentes de terminal altamente customizáv
 ### 🎯 Componentes Disponíveis
 
 - **TerminalMac** 🍎 - Simula o terminal do macOS com estilo nativo (dark/light mode)
-- **TerminalWindows** 🪟 (em desenvolvimento)
+- **TerminalWindows** 🪟 - Simula o Command Prompt e PowerShell do Windows (dark/light mode)
 - **TerminalLinux** 🐧 (em desenvolvimento)
 
 ---
@@ -28,11 +28,11 @@ npm install @murilocb123/ng-terminal-simulator
 
 ```typescript
 import { Component } from '@angular/core';
-import { TerminalMac } from '@murilocb123/ng-terminal-simulator';
+import { TerminalMac, TerminalWindows } from '@murilocb123/ng-terminal-simulator';
 
 @Component({
   selector: 'app-root',
-  imports: [TerminalMac],
+  imports: [TerminalMac, TerminalWindows],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -41,6 +41,8 @@ export class AppComponent {}
 
 ### 3️⃣ Uso no template
 
+#### Terminal macOS
+
 ```html
 <ng-terminal-simulator-mac
   [textContent]="'$ welcome to my terminal'"
@@ -48,6 +50,34 @@ export class AppComponent {}
   [username]="'developer'"
   [hostname]="'MacBook-Pro'"
 ></ng-terminal-simulator-mac>
+```
+
+#### Terminal Windows (Command Prompt)
+
+```html
+<ng-terminal-simulator-windows
+  [textContent]="'echo Hello World'"
+  [theme]="'dark'"
+  [interpreter]="'cmd'"
+  [path]="'C:\\Users\\developer'"
+></ng-terminal-simulator-windows>
+```
+
+#### Terminal Windows (PowerShell)
+
+```html
+<ng-terminal-simulator-windows
+  [textContent]="'Get-ChildItem | Select-Object Name'"
+  [theme]="'light'"
+  [interpreter]="'powershell'"
+  [path]="'C:\\Projects\\MyApp'"
+  [terminalStyle]="{
+    linePrompt: {
+      ps: { color: '#0078D4' },
+      path: { color: '#000000' }
+    }
+  }"
+></ng-terminal-simulator-windows>
 ```
 
 ---
@@ -102,8 +132,8 @@ terminal-angular/
 ## 🔄 Roadmap
 
 - [x] TerminalMac 🍎
+- [x] TerminalWindows 🪟
 - [ ] TerminalLinux 🐧
-- [ ] TerminalWindows 🪟
 - [ ] Suporte a input interativo
 - [ ] Animações de digitação
 - [ ] Temas pré-definidos

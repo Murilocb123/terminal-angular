@@ -4,19 +4,36 @@
     height: 100%;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: #1e1e1e;
+    
+    // Dark theme (default)
+    --terminal-bg: #1e1e1e;
+    --terminal-header-bg: #21202e;
+    --terminal-text: #ffffff;
+    --terminal-cursor: #ffffff;
+    --terminal-shadow: rgba(0, 0, 0, 0.1);
+    
+    // Light theme
+    &.light-theme {
+        --terminal-bg: #ffffff;
+        --terminal-header-bg: #ececec;
+        --terminal-text: #000000;
+        --terminal-cursor: #000000;
+        --terminal-shadow: rgba(0, 0, 0, 0.2);
+    }
+    
+    box-shadow: 0 4px 12px var(--terminal-shadow);
+    background-color: var(--terminal-bg);
 
     .header {
         display: flex;
         align-items: center;
         padding: 8px 12px;
-        background-color: #21202e;
+        background-color: var(--terminal-header-bg);
 
         .title {
             flex-grow: 1;
             text-align: center;
-            color: #ffffff;
+            color: var(--terminal-text);
             font-weight: bold;
             font-family:
                 -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -52,8 +69,8 @@
     .content {
         flex-grow: 1;
         padding: 12px;
-        background-color: #1e1e1e;
-        color: #ffffff;
+        background-color: var(--terminal-bg);
+        color: var(--terminal-text);
         font-family: 'SF Mono', 'Fira Code', 'Source Code Pro', monospace;
         font-size: 14px;
         overflow-y: auto;
@@ -62,7 +79,7 @@
 
     .cursor {
         display: inline-block;
-        border-left: 1ch solid #ffffff;
+        border-left: 1ch solid var(--terminal-cursor);
         height: 1em;
         animation: blink 0.5s step-end infinite;
     }

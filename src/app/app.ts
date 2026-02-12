@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { TerminalMac } from 'ng-terminal-simulator';
+import { TerminalMac, TerminalWindows } from 'ng-terminal-simulator';
 
 @Component({
     selector: 'app-root',
-    imports: [TerminalMac],
+    imports: [TerminalMac, TerminalWindows],
     templateUrl: './app.html',
     styleUrl: './app.scss',
 })

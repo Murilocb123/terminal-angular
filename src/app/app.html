@@ -1,13 +1,50 @@
 <div class="app-container">
-    <ng-terminal-simulator-mac
-        [terminalStyle]="{
-            linePrompt: {
-                username: { color: '#4EE1FF' },
-                at: { color: '#FFFFFF' },
-                hostname: { color: '#FF5C8F' },
-                tilde: { color: '#FFFFFF' },
-                promptSymbol: { color: '#00FF00' },
-            },
-        }"
-    ></ng-terminal-simulator-mac>
+    <div class="panel">
+        <h2 class="panel-title">🍎 macOS Terminal (Light Theme)</h2>
+        <div class="terminal-wrapper">
+            <ng-terminal-simulator-mac
+                [theme]="'light'"
+                [terminalStyle]="{
+                    linePrompt: {
+                        username: { color: '#4EE1FF' },
+                        at: { color: '#000000' },
+                        hostname: { color: '#FF5C8F' },
+                        tilde: { color: '#000000' },
+                        promptSymbol: { color: '#00FF00' },
+                    },
+                }"
+            ></ng-terminal-simulator-mac>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2 class="panel-title">🪟 Windows Command Prompt (Dark Theme)</h2>
+        <div class="terminal-wrapper">
+            <ng-terminal-simulator-windows
+                [theme]="'dark'"
+                [interpreter]="'cmd'"
+                [path]="'C:\\Users\\developer'"
+                [textContent]="'dir\nfile1.txt\nfile2.txt\nfolder1'"
+            ></ng-terminal-simulator-windows>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2 class="panel-title">🪟 Windows PowerShell (Light Theme)</h2>
+        <div class="terminal-wrapper">
+            <ng-terminal-simulator-windows
+                [theme]="'light'"
+                [interpreter]="'powershell'"
+                [path]="'C:\\Projects\\MyApp'"
+                [textContent]="'Get-ChildItem | Select-Object Name, Length'"
+                [terminalStyle]="{
+                    linePrompt: {
+                        ps: { color: '#0078D4' },
+                        path: { color: '#000000' },
+                        promptSymbol: { color: '#000000' }
+                    }
+                }"
+            ></ng-terminal-simulator-windows>
+        </div>
+    </div>
 </div>

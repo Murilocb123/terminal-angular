@@ -1,0 +1,139 @@
+.window-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    
+    // Dark theme (default)
+    --terminal-bg: #0C0C0C;
+    --terminal-header-bg: #1E1E1E;
+    --terminal-text: #CCCCCC;
+    --terminal-cursor: #FFFFFF;
+    --terminal-shadow: rgba(0, 0, 0, 0.3);
+    --terminal-accent: #0078D4;
+    --terminal-close-hover: #E81123;
+    --terminal-button-hover: #2D2D2D;
+    --terminal-button-text: #FFFFFF;
+    
+    // Light theme
+    &.light-theme {
+        --terminal-bg: #FFFFFF;
+        --terminal-header-bg: #F3F3F3;
+        --terminal-text: #000000;
+        --terminal-cursor: #000000;
+        --terminal-shadow: rgba(0, 0, 0, 0.1);
+        --terminal-accent: #0078D4;
+        --terminal-close-hover: #E81123;
+        --terminal-button-hover: #E5E5E5;
+        --terminal-button-text: #000000;
+    }
+    
+    box-shadow: 0 4px 12px var(--terminal-shadow);
+    background-color: var(--terminal-bg);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        background-color: var(--terminal-header-bg);
+
+        .title {
+            flex-grow: 1;
+            text-align: center;
+            color: var(--terminal-text);
+            font-weight: 500;
+            font-size: 12px;
+            font-family:
+                -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+                'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 12px;
+
+            .control {
+                width: 32px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-color: transparent;
+                transition: background-color 0.15s ease;
+
+                .icon {
+                    color: var(--terminal-button-text);
+                    font-size: 16px;
+                    font-weight: 300;
+                    line-height: 1;
+                }
+
+                &.minimize:hover {
+                    background-color: var(--terminal-button-hover);
+                }
+
+                &.maximize:hover {
+                    background-color: var(--terminal-button-hover);
+                }
+
+                &.close:hover {
+                    background-color: var(--terminal-close-hover);
+                    
+                    .icon {
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+    
+    .content {
+        flex-grow: 1;
+        padding: 12px;
+        background-color: var(--terminal-bg);
+        color: var(--terminal-text);
+        font-family: 'Consolas', 'Courier New', 'Cascadia Code', monospace;
+        font-size: 14px;
+        overflow-y: auto;
+        height: 100%;
+
+        .line {
+            margin-bottom: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+
+            .ps {
+                color: var(--terminal-text);
+            }
+
+            .path {
+                color: var(--terminal-text);
+            }
+
+            .prompt-symbol {
+                color: var(--terminal-text);
+            }
+
+            .text {
+                color: var(--terminal-text);
+            }
+        }
+    }
+
+    .cursor {
+        display: inline-block;
+        border-left: 1ch solid var(--terminal-cursor);
+        height: 1em;
+        animation: blink 0.5s step-end infinite;
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+}
