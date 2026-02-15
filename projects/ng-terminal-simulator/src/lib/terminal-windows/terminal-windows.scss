@@ -126,7 +126,7 @@
 
     .cursor {
         display: inline-block;
-        border-left: 1ch solid var(--terminal-cursor);
+        border-left: 0.2ch solid var(--terminal-cursor);
         height: 1em;
         animation: blink 0.5s step-end infinite;
     }

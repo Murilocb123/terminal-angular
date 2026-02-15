@@ -13,27 +13,42 @@
             </div>
         </div>
     </div>
-    <div class="content" #contentElement [ngStyle]="terminalStyle.content">
+    <div class="content" id="windows-terminal-content" [ngStyle]="terminalStyle.content">
         <div class="line">
             @if (interpreter === 'powershell') {
                 <span class="ps" [ngStyle]="terminalStyle.linePrompt?.ps">{{ shellPrefix }}</span>
             }
             <span class="path" [ngStyle]="terminalStyle.linePrompt?.path">{{ path }}</span>
-            <span class="prompt-symbol" [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{ promptSymbol }}</span>
-            <span class="cursor" [style.animation-duration.ms]="cursorBlinkSpeed"></span>
+            <span class="prompt-symbol" [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{
+                promptSymbol
+            }}</span>
+            @for (line of typedLines; track $index) {
+                @if (line && line !== '') {
+                    @if ($index > 0) {
+                        @if (interpreter === 'powershell') {
+                            <span class="ps" [ngStyle]="terminalStyle.linePrompt?.ps">{{
+                                shellPrefix
+                            }}</span>
+                        }
+                        <span class="path" [ngStyle]="terminalStyle.linePrompt?.path">{{
+                            path
+                        }}</span>
+                        <span
+                            class="prompt-symbol"
+                            [ngStyle]="terminalStyle.linePrompt?.promptSymbol"
+                            >{{ promptSymbol }}</span
+                        >
+                    }
+                    <span class="text"> {{ line }}</span>
+                    @if (
+                        (activeLineIndex === $index && isTyping) ||
+                        (!isTyping && $index === typedLines.length - 1 && typedLines.length > 0)
+                    ) {
+                        <span class="cursor" aria-hidden="true"></span>
+                    }
+                    <br />
+                }
+            }
         </div>
-        @for (line of currentTypedLines; track $index) {
-            <div class="line">
-                @if (interpreter === 'powershell') {
-                    <span class="ps" [ngStyle]="terminalStyle.linePrompt?.ps">{{ shellPrefix }}</span>
-                }
-                <span class="path" [ngStyle]="terminalStyle.linePrompt?.path">{{ path }}</span>
-                <span class="prompt-symbol" [ngStyle]="terminalStyle.linePrompt?.promptSymbol">{{ promptSymbol }}</span>
-                <span class="text">{{ line }}</span>
-                @if (isTyping && $index === currentLineIndex) {
-                    <span class="cursor" [style.animation-duration.ms]="cursorBlinkSpeed"></span>
-                }
-            </div>
-        }
     </div>
 </div>
