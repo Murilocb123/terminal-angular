@@ -133,9 +133,10 @@ terminal-angular/
 
 - [x] TerminalMac 🍎
 - [x] TerminalWindows 🪟
+- [X] Animações de digitação
+- [ ] Implementar testes unitários em todos os componentes e serviços
 - [ ] TerminalLinux 🐧
 - [ ] Suporte a input interativo
-- [X] Animações de digitação
 
 ---
 
