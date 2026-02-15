@@ -135,8 +135,7 @@ terminal-angular/
 - [x] TerminalWindows 🪟
 - [ ] TerminalLinux 🐧
 - [ ] Suporte a input interativo
-- [ ] Animações de digitação
-- [ ] Temas pré-definidos
+- [X] Animações de digitação
 
 ---
 
