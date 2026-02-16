@@ -134,7 +134,8 @@ terminal-angular/
 - [x] TerminalMac 🍎
 - [x] TerminalWindows 🪟
 - [X] Animações de digitação
-- [ ] Implementar testes unitários em todos os componentes e serviços
+- [X] Implementar testes unitários em todos os componentes e serviços
+- [ ] Configurar CI/CD para testes automatizados e publicação no npm
 - [ ] TerminalLinux 🐧
 - [ ] Suporte a input interativo
 
