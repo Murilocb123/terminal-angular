@@ -1,6 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TerminalWindows } from './terminal-windows';
 
+// Mock ResizeObserver for test environment
+if (typeof window !== 'undefined' && !window.ResizeObserver) {
+  (window as any).ResizeObserver = class ResizeObserver {
+    constructor(callback: ResizeObserverCallback) {}
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
+}
+
 describe('TerminalWindows', () => {
   let component: TerminalWindows;
   let fixture: ComponentFixture<TerminalWindows>;
@@ -8,8 +18,7 @@ describe('TerminalWindows', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TerminalWindows]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TerminalWindows);
     component = fixture.componentInstance;

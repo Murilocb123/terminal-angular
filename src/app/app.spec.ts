@@ -1,6 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 
+// Mock ResizeObserver for test environment
+if (typeof window !== 'undefined' && !window.ResizeObserver) {
+  (window as any).ResizeObserver = class ResizeObserver {
+    constructor(callback: ResizeObserverCallback) {}
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
+}
+
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,10 +24,13 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render terminal components', async () => {
     const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, terminal-angular');
+    expect(compiled.querySelector('.app-container')).toBeTruthy();
+    expect(compiled.querySelectorAll('ng-terminal-simulator-mac').length).toBeGreaterThan(0);
+    expect(compiled.querySelectorAll('ng-terminal-simulator-windows').length).toBeGreaterThan(0);
   });
 });

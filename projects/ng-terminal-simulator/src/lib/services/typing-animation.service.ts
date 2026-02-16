@@ -115,7 +115,7 @@ export class TypingAnimationService {
 
       this.typingTimeouts.push(
         setTimeout(() => {
-          if (runId !== this.typingRunId) return;
+          if (runId !== this.typingRunId) return; 
 
           typedLines[lineIndex] = (typedLines[lineIndex] || '') + line[charIndex];
           onProgress?.(lineIndex, charIndex + 1);
