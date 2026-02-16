@@ -22,7 +22,7 @@
       }
     ]
   },
-  "private": true,
+  "private": false,
   "packageManager": "npm@11.3.0",
   "dependencies": {
     "@angular/common": "^21.1.0",
