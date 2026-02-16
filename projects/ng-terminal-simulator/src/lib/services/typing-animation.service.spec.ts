@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { TypingAnimationService } from './typing-animation.service';
-import { ChangeDetectorRef } from '@angular/core';
 
 describe('TypingAnimationService', () => {
   let service: TypingAnimationService;
@@ -20,7 +19,7 @@ describe('TypingAnimationService', () => {
 
   afterEach(() => {
     service.clearTimeouts();
-    vi.useRealTimers
+    vi.useRealTimers();
   });
 
   it('should be created', () => {
@@ -279,7 +278,7 @@ describe('TypingAnimationService', () => {
         cursorBlinkMs: 500,
       };
 
-      const runId = service.startTyping(lines, typedLines, config, mockCdr);
+      const _runId = service.startTyping(lines, typedLines, config, mockCdr);
       service.stopTyping(); // This increments runId
       vi.advanceTimersByTime(100);
 

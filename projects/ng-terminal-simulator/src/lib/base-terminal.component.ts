@@ -9,7 +9,7 @@ import {
 import { TypingAnimationService } from './services/typing-animation.service';
 import { TextWrapperService, TextWrapperConfig } from './services/text-wrapper.service';
 import { TerminalStyleConfig, TerminalTheme } from './models/terminal-style';
-import { AnimationConfig, DEFAULT_ANIMATION_CONFIG } from './models/animation-config';
+import { AnimationConfig } from './models/animation-config';
 
 /**
  * Abstract base class for terminal components

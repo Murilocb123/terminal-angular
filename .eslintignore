@@ -1,0 +1,30 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node modules
+node_modules
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IDE - WebStorm
+.idea
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+/coverage
+
+# Build files
+*.js.map
+*.d.ts
+.angular

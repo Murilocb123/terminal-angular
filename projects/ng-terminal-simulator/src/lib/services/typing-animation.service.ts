@@ -8,8 +8,8 @@ import { AnimationConfig } from '../models/animation-config';
  */
 @Injectable()
 export class TypingAnimationService {
-  private typingTimeouts: Array<ReturnType<typeof setTimeout>> = [];
-  private typingRunId: number = 0;
+  private typingTimeouts: ReturnType<typeof setTimeout>[] = [];
+  private typingRunId = 0;
 
   constructor() {}
 

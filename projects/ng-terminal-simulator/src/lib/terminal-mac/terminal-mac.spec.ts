@@ -4,10 +4,10 @@ import { TerminalMac } from './terminal-mac';
 // Mock ResizeObserver for test environment
 if (typeof window !== 'undefined' && !window.ResizeObserver) {
   (window as any).ResizeObserver = class ResizeObserver {
-    constructor(callback: ResizeObserverCallback) {}
-    observe() {}
-    unobserve() {}
-    disconnect() {}
+    constructor(_callback: ResizeObserverCallback) {}
+    observe(): void {}
+    unobserve(): void {}
+    disconnect(): void {}
   };
 }
 

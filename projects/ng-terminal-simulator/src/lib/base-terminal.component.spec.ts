@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { BaseTerminalComponent } from './base-terminal.component';
 import { TypingAnimationService } from './services/typing-animation.service';
@@ -9,15 +9,15 @@ import { TerminalStyleConfig } from './models/terminal-style';
 // Mock ResizeObserver for test environment
 if (typeof window !== 'undefined' && !window.ResizeObserver) {
   (window as any).ResizeObserver = class ResizeObserver {
-    constructor(callback: ResizeObserverCallback) {}
-    observe() {}
-    unobserve() {}
-    disconnect() {}
+    constructor(_callback: ResizeObserverCallback) {}
+    observe(): void {}
+    unobserve(): void {}
+    disconnect(): void {}
   };
 }
 
 @Component({
-  selector: 'test-terminal',
+  selector: 'lib-test-terminal',
   template: '<div id="test-terminal-content"></div>',
   standalone: true,
 })
@@ -44,7 +44,6 @@ describe('BaseTerminalComponent', () => {
   let fixture: ComponentFixture<TestTerminalComponent>;
   let mockTypingAnimationService: TypingAnimationService;
   let mockTextWrapperService: TextWrapperService;
-  let mockCdr: ChangeDetectorRef;
 
   beforeEach(async () => {
     mockTypingAnimationService = {

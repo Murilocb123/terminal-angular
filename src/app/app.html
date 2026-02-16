@@ -2,7 +2,7 @@
     <div class="panel">
         <h2 class="panel-title">🍎 macOS Terminal (Light Theme)</h2>
         <div class="terminal-wrapper">
-            <ng-terminal-simulator-mac
+            <lib-terminal-mac
                 [theme]="'light'"
                 [terminalStyle]="{
                     linePrompt: {
@@ -13,26 +13,26 @@
                         promptSymbol: { color: '#00FF00' },
                     },
                 }"
-            ></ng-terminal-simulator-mac>
+            ></lib-terminal-mac>
         </div>
     </div>
 
     <div class="panel">
         <h2 class="panel-title">🪟 Windows Command Prompt (Dark Theme)</h2>
         <div class="terminal-wrapper">
-            <ng-terminal-simulator-windows
+            <lib-terminal-windows
                 [theme]="'dark'"
                 [interpreter]="'cmd'"
                 [path]="'C:\\Users\\developer'"
                 [textContent]="'dir\nfile1.txt\nfile2.txt\nfolder1'"
-            ></ng-terminal-simulator-windows>
+            ></lib-terminal-windows>
         </div>
     </div>
 
     <div class="panel">
         <h2 class="panel-title">🪟 Windows PowerShell (Light Theme)</h2>
         <div class="terminal-wrapper">
-            <ng-terminal-simulator-windows
+            <lib-terminal-windows
                 [theme]="'light'"
                 [interpreter]="'powershell'"
                 [path]="'C:\\Projects\\MyApp'"
@@ -44,7 +44,7 @@
                         promptSymbol: { color: '#000000' }
                     }
                 }"
-            ></ng-terminal-simulator-windows>
+            ></lib-terminal-windows>
         </div>
     </div>
 </div>

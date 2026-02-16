@@ -6,7 +6,7 @@ import { TextWrapperService } from '../services/text-wrapper.service';
 import { TerminalStyleConfig } from '../models/terminal-style';
 
 @Component({
-    selector: 'ng-terminal-simulator-windows',
+    selector: 'lib-terminal-windows',
     standalone: true,
     imports: [CommonModule],
     templateUrl: './terminal-windows.html',

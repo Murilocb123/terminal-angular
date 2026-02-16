@@ -11,7 +11,7 @@ import { TerminalStyleConfig } from '../models/terminal-style';
  * Extends BaseTerminalComponent to inherit shared logic and implement Mac-specific behavior
  */
 @Component({
-  selector: 'ng-terminal-simulator-mac',
+  selector: 'lib-terminal-mac',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './terminal-mac.html',

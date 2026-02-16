@@ -72,6 +72,15 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -97,6 +106,15 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "projects/ng-terminal-simulator/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-terminal-simulator/**/*.ts",
+              "projects/ng-terminal-simulator/**/*.html"
+            ]
           }
         }
       }
