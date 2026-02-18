@@ -17,8 +17,6 @@ Uma biblioteca Angular com componentes de terminal customizaveis que simulam int
 
 ### 1️⃣ Instalacao
 
-Instale a biblioteca via npm:
-
 ```bash
 npm install @murilocb123/ng-terminal-simulator
 ```
@@ -40,7 +38,7 @@ export class AppComponent {}
 
 ### 3️⃣ Uso no template
 
-#### Terminal macOS
+#### Terminal macOS 🍎
 
 ```html
 <lib-terminal-mac
@@ -51,7 +49,7 @@ export class AppComponent {}
 ></lib-terminal-mac>
 ```
 
-#### Terminal Windows (Command Prompt)
+#### Terminal Windows (Command Prompt) 🪟
 
 ```html
 <lib-terminal-windows
@@ -62,7 +60,7 @@ export class AppComponent {}
 ></lib-terminal-windows>
 ```
 
-#### Terminal Windows (PowerShell)
+#### Terminal Windows (PowerShell) 🪟
 
 ```html
 <lib-terminal-windows
@@ -79,7 +77,7 @@ export class AppComponent {}
 ></lib-terminal-windows>
 ```
 
-#### Controles de animacao
+#### Controles de animacao ✨
 
 ```html
 <lib-terminal-mac
@@ -104,12 +102,12 @@ export class AppComponent {}
 
 ## 🧩 API
 
-### Seletores
+### Seletores 🔎
 
 - `lib-terminal-mac`
 - `lib-terminal-windows`
 
-### Inputs compartilhados
+### Inputs compartilhados 🧰
 
 - `textContent`: string
 - `theme`: `'light' | 'dark'`
@@ -125,7 +123,7 @@ export class AppComponent {}
 
 Observacao: quando `enableAnimations` e `false`, o texto e renderizado completo sem animacao.
 
-### Inputs do TerminalMac
+### Inputs do TerminalMac 🍎
 
 - `username`: string
 - `at`: string
@@ -133,13 +131,13 @@ Observacao: quando `enableAnimations` e `false`, o texto e renderizado completo 
 - `tilde`: string
 - `interpreter`: string
 
-### Inputs do TerminalWindows
+### Inputs do TerminalWindows 🪟
 
 - `path`: string
 - `interpreter`: `'cmd' | 'powershell'`
 - `shellPrefix`: string (usado no PowerShell)
 
-### Tipos exportados
+### Tipos exportados 📦
 
 - `TerminalStyleConfig`
 - `AnimationConfig`
@@ -156,70 +154,3 @@ const style: TerminalStyleConfig = {
   }
 };
 ```
-
----
-
-## 💻 Desenvolvimento Local
-
-### 🚀 Publicacao
-
-Siga estes passos para publicar a biblioteca:
-
-```bash
-# 1️⃣ Build da biblioteca
-ng build ng-terminal-simulator
-
-# 2️⃣ Publicar no npm
-npm publish ng-terminal-simulator --access public
-```
-
-Sucesso! 🎉 A biblioteca está disponível no npm e pode ser instalada por qualquer um:
-
-```bash
-npm install @murilocb123/ng-terminal-simulator
-```
-
-## 🗂️ Estrutura do Projeto
-
-```
-terminal-angular/
-├── projects/
-│   └── ng-terminal-simulator/
-│       ├── src/
-│       │   ├── lib/
-│       │   │   ├── base-terminal.component.ts
-│       │   │   ├── models/
-│       │   │   ├── services/
-│       │   │   ├── terminal-mac/
-│       │   │   └── terminal-windows/
-│       │   └── public-api.ts
-│       ├── package.json
-│       └── ng-package.json
-├── src/
-│   ├── app/
-│   ├── index.html
-│   └── main.ts
-├── angular.json
-├── package.json
-└── README.md
-```
----
-
-## 🔄 Roadmap
-
-- [x] TerminalMac 🍎
-- [x] TerminalWindows 🪟
-- [x] Animações de digitação
-- [x] Implementar testes unitários em todos os componentes e serviços
-- [ ] Configurar CI/CD para testes automatizados e publicação no npm
-- [ ] TerminalLinux 🐧
-- [ ] Suporte a input interativo
-
----
-
-## 📚 Additional Resources
-
-- [Angular CLI Overview](https://angular.dev/tools/cli)
-- [npm Publishing Guide](https://docs.npmjs.com/cli/v10/commands/npm-publish)
-- [Semantic Versioning](https://semver.org/)
-
