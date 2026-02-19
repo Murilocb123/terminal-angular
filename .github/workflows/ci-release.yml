@@ -87,7 +87,7 @@ jobs:
       - name: Commit and tag release
         run: |
           VERSION=$(node -p "require('./projects/ng-terminal-simulator/package.json').version")
-          git add projects/ng-terminal-simulator/package.json projects/ng-terminal-simulator/package-lock.json
+          git add projects/ng-terminal-simulator/package.json
           git commit -m "chore(release): ${VERSION}"
           git tag "v${VERSION}"
 
