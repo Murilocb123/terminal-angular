@@ -75,9 +75,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build library
-        run: npm run build -- ng-terminal-simulator
-
       - name: Configure Git
         run: |
           git config user.name "github-actions"
@@ -87,8 +84,11 @@ jobs:
         run: "npm version ${{ inputs.releaseType }} -m 'chore(release): %s'"
         working-directory: projects/ng-terminal-simulator
 
+      - name: Build library
+        run: npm run build -- ng-terminal-simulator
+
       - name: Push tags
-        run: git push --follow-tags
+        run: git push origin main --follow-tags
 
       - name: Publish to npm
         if: ${{ inputs.publish == 'true' }}
